@@ -43,8 +43,6 @@ public class PaletActivity extends AppCompatActivity {
     TextView produk, level, scan, ed, md, station, bar, count, username, pcs, txtreject, txtkarantina, txtlulus, status, logname, logtime, lognote, nie, sku;
     RecyclerView rvChild, rvBatch;
     ProgressDialog loading;
-    Integer sum = 0;
-    Button check;
     FloatingActionButton reject, karantina, lulus;
     SharedPreferences sharedPreferences;
     ExtendedFloatingActionButton action;
@@ -187,7 +185,6 @@ public class PaletActivity extends AppCompatActivity {
             public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
                 loading.dismiss();
                 Response data = response.body();
-                Log.d("dataprintdata", new Gson().toJson(data));
                 if (data == null){
                     Toast.makeText(PaletActivity.this, "No data available!", Toast.LENGTH_SHORT).show();
                 } else {
@@ -251,6 +248,7 @@ public class PaletActivity extends AppCompatActivity {
         responseStatusCall.enqueue(new Callback<ResponseStatus>() {
             @Override
             public void onResponse(Call<ResponseStatus> call, retrofit2.Response<ResponseStatus> response) {
+                loading.dismiss();
                 ResponseStatus data = response.body();
                 if (data.getStatus().equals("success")){
                     Toast.makeText(PaletActivity.this, "Status berhasil diupdate!" , Toast.LENGTH_SHORT).show();
@@ -294,6 +292,7 @@ public class PaletActivity extends AppCompatActivity {
                     if (edtnote.getText().toString().equals("") || edtnote.getText().toString().equals(null)){
                         Toast.makeText(PaletActivity.this, "Keterangan harus diisi!", Toast.LENGTH_SHORT).show();
                     } else {
+                        loading.show();
                         checkProduct(title, level, barcode, edtnote.getText().toString());
                         dialog.dismiss();
                         getData(barcode, token);

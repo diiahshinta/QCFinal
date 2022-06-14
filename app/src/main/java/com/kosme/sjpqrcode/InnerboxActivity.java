@@ -274,6 +274,7 @@ public class InnerboxActivity extends AppCompatActivity {
         responseStatusCall.enqueue(new Callback<ResponseStatus>() {
             @Override
             public void onResponse(Call<ResponseStatus> call, retrofit2.Response<ResponseStatus> response) {
+
                 ResponseStatus data = response.body();
                 if (data.getStatus().equals("success")){
                     Toast.makeText(InnerboxActivity.this, "Status berhasil diupdate!" , Toast.LENGTH_SHORT).show();

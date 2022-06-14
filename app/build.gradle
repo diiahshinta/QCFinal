@@ -6,11 +6,11 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.kosme2.sjpqrcode"
+        applicationId "com.kosme.sjpqrcode"
         minSdk 19
         targetSdk 31
         versionCode 2
-        versionName "2.0"
+        versionName "3.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
