@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- LOGIN -->
+    <style name="text_info_login">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="form_input_login">
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:background">@drawable/shape_white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <!-- POP UP -->
+    <style name="text_pop_up_lulus">
+        <item name="android:textColor">@color/green_1</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="text_pop_up_karantina">
+        <item name="android:textColor">@color/yellow_1</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="text_pop_up_reject">
+        <item name="android:textColor">@color/red_1</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- INFO DATA -->
+    <style name="text_info_data">
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:background">@drawable/shape_pink_1</item>
+    </style>
+    <style name="text_tabel_data">
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingStart">15dp</item>
+        <item name="android:paddingEnd">15dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:weightSum">3</item>
+        <item name="android:background">@color/grey_1</item>
+    </style>
+    <style name="text_tabel_row_1">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="text_tabel_row_2">
+        <item name="android:layout_width">25dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="text_tabel_data_log">
+        <item name="android:paddingStart">15dp</item>
+        <item name="android:paddingEnd">15dp</item>
+        <item name="android:background">@color/grey_1</item>
+    </style>
+
+    <!-- FORM INPUT DESKRIPSI -->
+    <style name="form_deskripsi">
+        <item name="android:layout_marginTop">130dp</item>
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:background">@drawable/shape_grey</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:gravity">top</item>
+    </style>
+    <style name="btn_form_deskripsi">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
