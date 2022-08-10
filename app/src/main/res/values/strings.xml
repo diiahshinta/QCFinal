@@ -1,3 +1,25 @@
 <resources>
-    <string name="app_name">SJPQRCode</string>
+    <string name="app_name">KOSME QC</string>
+    <string name="splash_screen">Dengan menggunakan aplikasi kami, Anda menyetujui terms of service</string>
+    <string name="welcome_1">Selamat Datang!</string>
+    <string name="welcome_2">Silahkan masuk ke dalam akun Anda</string>
+    <string name="hello_akun">Hello,\nMaman!</string>
+    <string name="email_akun">mamangreget@gmail.com</string>
+
+    <!-- DATA PRODUK -->
+    <string name="id_produk">PUTVIDE37782</string>
+    <string name="nama_produk">MS GLOW FOR MEN - ENERGIZER FACIAL WASH</string>
+    <string name="level">Pallet</string>
+    <string name="scan_date">2022-07-09 04:32:44</string>
+    <string name="expired_date">2024-07-08</string>
+    <string name="make_date">2022-07-08</string>
+    <string name="station_name">L4</string>
+    <string name="child">45</string>
+    <string name="username">LINE 4</string>
+    <string name="nie">NA18191234497</string>
+    <string name="sku">10010060002</string>
+    <string name="batch_number">10010060002</string>
+    <string name="batch_number_pcs">29 Pcs</string>
+    <string name="total_produk">4725 Pcs</string>
+    <string name="status">PRODUKSI</string>
 </resources>

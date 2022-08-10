@@ -1,287 +1,316 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_gravity="center"
-    android:padding="20dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <TextView
+    tools:context=".MainActivity">
+
+    <ImageButton
+        android:id="@+id/btn_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txt_title"
-        android:text="Data Produk"
+        android:background="@drawable/icon_back"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="50dp"
+        />
+
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/barcode"
-        android:textIsSelectable="true"
         android:text="Data Produk"
-        app:layout_constraintTop_toBottomOf="@id/txt_title"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="45dp"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"/>
-    <RelativeLayout
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/barcode"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_back"
+        tools:ignore="MissingConstraints">
 
-        <TextView
-            android:id="@+id/txt_nama"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:text="Nama Produk"/>
-        <TextView
-            android:id="@+id/titik"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:layout_toRightOf="@+id/txt_nama"
-            android:text=":"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/txt_nama_produk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/titik"
-            android:text="" />
-        <TextView
-            android:id="@+id/txt_batch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/txt_nama_produk"
-            android:text="Batch Number"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:layout_toRightOf="@+id/txt_nama"
-            android:layout_below="@+id/txt_nama_produk"
-            android:text=":"/>
-        <TextView
-            android:id="@+id/txt_batch_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/titik"
-            android:layout_below="@+id/txt_nama_produk"
-            android:text=""/>
-        <TextView
-            android:id="@+id/level"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/txt_batch"
-            android:text="Level"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:layout_toRightOf="@+id/txt_nama"
-            android:layout_below="@+id/txt_batch"
-            android:text=":"/>
-        <TextView
-            android:id="@+id/txt_level"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/titik"
-            android:layout_below="@+id/txt_batch"
-            android:text=""/>
-        <TextView
-            android:id="@+id/txt_scan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/txt_level"
-            android:text="Scan Date"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:layout_toRightOf="@+id/txt_nama"
-            android:layout_below="@+id/txt_level"
-            android:text=":"/>
-        <TextView
-            android:id="@+id/txt_scan_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/titik"
-            android:layout_below="@+id/txt_level"
-            android:text=""/>
-        <TextView
-            android:id="@+id/ep"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/txt_scan"
-            android:text="Expired Date"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:layout_toRightOf="@+id/txt_nama"
-            android:layout_below="@+id/txt_scan"
-            android:text=":"/>
-        <TextView
-            android:id="@+id/txt_expired_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/titik"
-            android:layout_below="@+id/txt_scan"
-            android:text=""/>
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/md"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/ep"
-            android:text="Make Date"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:layout_toRightOf="@+id/txt_nama"
-            android:layout_below="@+id/ep"
-            android:text=":"/>
-        <TextView
-            android:id="@+id/txt_make_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/titik"
-            android:layout_below="@+id/ep"
-            android:text=""/>
-        <TextView
-            android:id="@+id/station"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/md"
-            android:text="Station Name"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:layout_toRightOf="@+id/txt_nama"
-            android:layout_below="@+id/md"
-            android:text=":"/>
-        <TextView
-            android:id="@+id/txt_station_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/titik"
-            android:layout_below="@+id/md"
-            android:text=""/>
-        <TextView
-            android:id="@+id/parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/station"
-            android:text="Inner Box"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:layout_toRightOf="@+id/txt_nama"
-            android:layout_below="@+id/station"
-            android:text=":"/>
-        <TextView
-            android:id="@+id/txt_parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/titik"
-            android:layout_below="@+id/station"
-            android:text=""/>
-        <TextView
-            android:id="@+id/username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/parent"
-            android:text="Username"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:layout_toRightOf="@+id/txt_nama"
-            android:layout_below="@+id/parent"
-            android:text=":"/>
-        <TextView
-            android:id="@+id/txt_username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/titik"
-            android:layout_below="@+id/parent"
-            android:text=""/>
-        <TextView
-            android:id="@+id/nie"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/username"
-            android:layout_alignParentLeft="true"
-            android:text="NIE" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:layout_toRightOf="@+id/txt_nama"
-            android:layout_below="@+id/username"
-            android:text=":"/>
-        <TextView
-            android:id="@+id/txt_nie"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/titik"
-            android:layout_below="@+id/username"
-            android:text=""/>
-        <TextView
-            android:id="@+id/sku"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/nie"
-            android:layout_alignParentLeft="true"
-            android:text="SKU" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:layout_toRightOf="@+id/txt_nama"
-            android:layout_below="@+id/nie"
-            android:text=":"/>
-        <TextView
-            android:id="@+id/txt_sku"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/titik"
-            android:layout_below="@+id/nie"
-            android:text=""/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:id="@+id/barcode"
+                    android:textIsSelectable="true"
+                    style="@style/text_info_data" />
 
-    </RelativeLayout>
+                <!-- Nama Produk -->
+                <TableRow
+                    android:id="@+id/tableRow1"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    style="@style/text_tabel_data">
 
+                    <TextView
+                        android:text="Nama Produk"
+                        style="@style/text_tabel_row_1" />
 
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
 
+                    <TextView
+                        android:id="@+id/txt_nama_produk"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+                <!-- Level -->
+                <TableRow
+                    android:id="@+id/tableRow2"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data" >
+
+                    <TextView
+                        android:text="Level"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_level"
+                        android:text="-"
+                        android:textColor="@color/black"/>
+                </TableRow>
+
+                <!-- Scan Date -->
+                <TableRow
+                    android:id="@+id/tableRow3"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data" >
+
+                    <TextView
+                        android:text="Scan Date"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_scan_date"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+                <!-- Expired Date -->
+                <TableRow
+                    android:id="@+id/tableRow4"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data" >
+
+                    <TextView
+                        android:text="Expired Date"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_expired_date"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+                <!-- Make Date -->
+                <TableRow
+                    android:id="@+id/tableRow5"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data" >
+
+                    <TextView
+                        android:text="Make Date"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_make_date"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+                <!-- Station Name -->
+                <TableRow
+                    android:id="@+id/tableRow6"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data" >
+
+                    <TextView
+                        android:text="Station Name"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_station_name"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+                <!-- Parent -->
+                <TableRow
+                    android:id="@+id/tableRow16"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data">
+
+                    <TextView
+                        android:text="Inner"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_parent"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+                <!-- Child -->
+                <TableRow
+                    android:id="@+id/tableRow7"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data" >
+
+                    <TextView
+                        android:text="Batch Number"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_batch_number"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+                <!-- Username -->
+                <TableRow
+                    android:id="@+id/tableRow8"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data" >
+
+                    <TextView
+                        android:text="Username"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_username"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+                <!-- NIE -->
+                <TableRow
+                    android:id="@+id/tableRow9"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data" >
+
+                    <TextView
+                        android:text="NIE"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_nie"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+                <!-- SKU -->
+                <TableRow
+                    android:id="@+id/tableRow10"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:paddingBottom="10dp"
+                    style="@style/text_tabel_data" >
+
+                    <TextView
+                        android:text="SKU"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_sku"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

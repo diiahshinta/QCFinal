@@ -47,7 +47,6 @@ public class ProductActivity extends AppCompatActivity {
         Login login = gson.fromJson(json, Login.class);
 
         token = login.getAuth().getToken();
-        Log.d("tesdata", token + " + " + barcode);
         getData(barcode, token);
 
         produk = findViewById(R.id.txt_nama_produk);

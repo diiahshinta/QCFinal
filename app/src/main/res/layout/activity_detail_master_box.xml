@@ -1,406 +1,437 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_gravity="center"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.core.widget.NestedScrollView
+    tools:context=".MainActivity">
 
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="50dp"
+        />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data Produk"
+        android:layout_marginTop="45dp"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_back"
+        tools:ignore="MissingConstraints">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="20dp">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/txt_title"
-                android:text="Data Produk"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="10dp"
-                android:textStyle="bold"
-                android:textSize="20sp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/barcode"
-                android:textIsSelectable="true"
-                android:text="Data Produk"
-                app:layout_constraintTop_toBottomOf="@id/txt_title"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="10dp"
-                android:textStyle="bold"/>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/barcode"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="20dp">
+                app:layout_constraintTop_toTopOf="parent">
 
-
-                <TextView
-                    android:id="@+id/txt_nama"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:text="Nama Produk" />
-                <TextView
-                    android:id="@+id/titik"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:layout_toRightOf="@+id/txt_nama"
-                    android:text=":"/>
-
-                <TextView
-                    android:id="@+id/txt_nama_produk"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/titik"
-                    android:text="" />
-
-                <TextView
-                    android:id="@+id/level"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/txt_nama_produk"
-                    android:text="Level"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:layout_toRightOf="@+id/txt_nama"
-                    android:layout_below="@+id/txt_nama_produk"
-                    android:text=":"/>
-                <TextView
-                    android:id="@+id/txt_level"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/titik"
-                    android:layout_below="@+id/txt_nama_produk"
-                    android:text=""/>
-                <TextView
-                    android:id="@+id/txt_scan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/txt_level"
-                    android:text="Scan Date"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:layout_toRightOf="@+id/txt_nama"
-                    android:layout_below="@+id/txt_level"
-                    android:text=":"/>
-                <TextView
-                    android:id="@+id/txt_scan_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/titik"
-                    android:layout_below="@+id/txt_level"
-                    android:text=""/>
-                <TextView
-                    android:id="@+id/ep"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/txt_scan"
-                    android:text="Expired Date"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:layout_toRightOf="@+id/txt_nama"
-                    android:layout_below="@+id/txt_scan"
-                    android:text=":"/>
-                <TextView
-                    android:id="@+id/txt_expired_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/titik"
-                    android:layout_below="@+id/txt_scan"
-                    android:text=""/>
-
-                <TextView
-                    android:id="@+id/md"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/ep"
-                    android:text="Make Date"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:layout_toRightOf="@+id/txt_nama"
-                    android:layout_below="@+id/ep"
-                    android:text=":"/>
-                <TextView
-                    android:id="@+id/txt_make_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/titik"
-                    android:layout_below="@+id/ep"
-                    android:text=""/>
-                <TextView
-                    android:id="@+id/station"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/md"
-                    android:text="Station Name"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:layout_toRightOf="@+id/txt_nama"
-                    android:layout_below="@+id/md"
-                    android:text=":"/>
-                <TextView
-                    android:id="@+id/txt_station_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/titik"
-                    android:layout_below="@+id/md"
-                    android:text=""/>
-                <TextView
-                    android:id="@+id/parent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/station"
-                    android:layout_alignParentLeft="true"
-                    android:text="Palet" />
-                <TextView
-                    android:id="@+id/titikparent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:layout_toRightOf="@+id/txt_nama"
-                    android:layout_below="@+id/station"
-                    android:text=":"/>
-                <TextView
-                    android:id="@+id/txt_parent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/titik"
-                    android:layout_below="@+id/station"
-                    android:text=""/>
-
-                <TextView
-                    android:id="@+id/count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/parent"
-                    android:text="Child"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:layout_toRightOf="@+id/txt_nama"
-                    android:layout_below="@+id/parent"
-                    android:text=":"/>
-                <TextView
-                    android:id="@+id/txt_count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/titik"
-                    android:layout_below="@+id/parent"
-                    android:text=""/>
-
-                <TextView
-                    android:id="@+id/username"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/count"
-                    android:layout_alignParentLeft="true"
-                    android:text="Username" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:layout_toRightOf="@+id/txt_nama"
-                    android:layout_below="@+id/count"
-                    android:text=":"/>
-                <TextView
-                    android:id="@+id/txt_username"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/titik"
-                    android:layout_below="@+id/count"
-                    android:text=""/>
-                <TextView
-                    android:id="@+id/nie"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/username"
-                    android:layout_alignParentLeft="true"
-                    android:text="NIE" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:layout_toRightOf="@+id/txt_nama"
-                    android:layout_below="@+id/username"
-                    android:text=":"/>
-                <TextView
-                    android:id="@+id/txt_nie"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/titik"
-                    android:layout_below="@+id/username"
-                    android:text=""/>
-                <TextView
-                    android:id="@+id/sku"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/nie"
-                    android:layout_alignParentLeft="true"
-                    android:text="SKU" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:layout_toRightOf="@+id/txt_nama"
-                    android:layout_below="@+id/nie"
-                    android:text=":"/>
-                <TextView
-                    android:id="@+id/txt_sku"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/titik"
-                    android:layout_below="@+id/nie"
-                    android:text=""/>
-
-                <TextView
-                    android:id="@+id/batch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/sku"
-                    android:layout_alignParentLeft="true"
-                    android:text="Batch Number" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:layout_toRightOf="@+id/batch"
-                    android:layout_below="@+id/txt_sku"
-                    android:text=":"/>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_batch"
+                <ImageView
+                    android:id="@+id/info_dashboard"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txt_sku"
-                    android:layout_toRightOf="@+id/titik"
-                    tools:itemCount="4"
-                    tools:listitem="@layout/item_batch" />
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/status_ok"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
                 <TextView
-                    android:id="@+id/pcs"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/rv_batch"
-                    android:text="Total Produk"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:layout_toRightOf="@+id/txt_nama"
-                    android:layout_below="@+id/rv_batch"
-                    android:text=":"/>
-                <TextView
-                    android:id="@+id/txt_pcs"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/titik"
-                    android:layout_below="@+id/rv_batch"
-                    android:text=""/>
-
-                <TextView
-                    android:id="@+id/status"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/pcs"
-                    android:text="Status"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:layout_toRightOf="@+id/txt_nama"
-                    android:layout_below="@+id/pcs"
-                    android:text=":"/>
-                <TextView
-                    android:id="@+id/txt_status"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/titik"
-                    android:textAllCaps="true"
-                    android:layout_below="@+id/pcs"
-                    android:text=""/>
-
-                <RelativeLayout
-                    android:id="@+id/log"
                     android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:id="@+id/barcode"
+                    android:textIsSelectable="true"
+                    style="@style/text_info_data" />
+
+                <!-- Nama Produk -->
+                <TableRow
+                    android:id="@+id/tableRow1"
                     android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
-                    android:padding="10dp"
-                    android:background="@drawable/bg_menu"
-                    android:backgroundTint="#BCCBE2"
-                    android:layout_below="@+id/status">
+                    style="@style/text_tabel_data">
+
                     <TextView
-                        android:id="@+id/log_title"
+                        android:text="Nama Produk"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_nama_produk"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+                <!-- Level -->
+                <TableRow
+                    android:id="@+id/tableRow2"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data" >
+
+                    <TextView
+                        android:text="Level"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_level"
+                        android:text="-"
+                        android:textColor="@color/black"/>
+                </TableRow>
+
+                <!-- Scan Date -->
+                <TableRow
+                    android:id="@+id/tableRow3"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data" >
+
+                    <TextView
+                        android:text="Scan Date"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_scan_date"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+                <!-- Expired Date -->
+                <TableRow
+                    android:id="@+id/tableRow4"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data" >
+
+                    <TextView
+                        android:text="Expired Date"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_expired_date"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+                <!-- Make Date -->
+                <TableRow
+                    android:id="@+id/tableRow5"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data" >
+
+                    <TextView
+                        android:text="Make Date"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_make_date"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+                <!-- Station Name -->
+                <TableRow
+                    android:id="@+id/tableRow6"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data" >
+
+                    <TextView
+                        android:text="Station Name"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_station_name"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+                <!-- Parent -->
+                <TableRow
+                    android:id="@+id/tableRow16"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data">
+
+                    <TextView
+                        android:text="Palet"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_parent"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+                <!-- Child -->
+                <TableRow
+                    android:id="@+id/tableRow7"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data" >
+
+                    <TextView
+                        android:text="Child"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_count"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+                <!-- Username -->
+                <TableRow
+                    android:id="@+id/tableRow8"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data" >
+
+                    <TextView
+                        android:text="Username"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_username"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+                <!-- NIE -->
+                <TableRow
+                    android:id="@+id/tableRow9"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data" >
+
+                    <TextView
+                        android:text="NIE"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_nie"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+                <!-- SKU -->
+                <TableRow
+                    android:id="@+id/tableRow10"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data" >
+
+                    <TextView
+                        android:text="SKU"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_sku"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+
+                <!-- Total Produk -->
+                <TableRow
+                    android:id="@+id/tableRow12"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data" >
+
+                    <TextView
+                        android:text="Total Produk"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_pcs"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+                <!-- Status -->
+                <TableRow
+                    android:id="@+id/tableRow13"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data">
+
+                    <TextView
+                        android:text="Status"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <TextView
+                        android:id="@+id/txt_status"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
+
+
+                <!-- Batch Number -->
+                <TableRow
+                    android:id="@+id/tableRow11"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data"
+                    android:paddingBottom="15dp"  >
+
+                    <TextView
+                        android:text="Batch Number"
+                        style="@style/text_tabel_row_1" />
+
+                    <TextView
+                        android:text=":"
+                        style="@style/text_tabel_row_2"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_batch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:text="Log History"/>
+                        android:layout_below="@+id/txt_sku"
+                        android:layout_toRightOf="@+id/titik"
+                        tools:itemCount="4"
+                        tools:listitem="@layout/item_batch" />
+
+                </TableRow>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="LOG HISTORY"
+                    style="@style/text_info_data" />
+
+                <!-- LOG HISTORY-->
+                <TableRow
+                    android:id="@+id/tableRow14"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data_log"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="15dp">
+
                     <TextView
                         android:id="@+id/log_name"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/log_title"
-                        android:text="Maman"/>
-                    <TextView
-                    android:id="@+id/log_note"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/log_name"
-                    android:text="Maman"/>
+                        android:text="-"
+                        android:textStyle="bold"
+                        android:layout_width="200dp"
+                        android:textColor="@color/black" />
+
                     <TextView
                         android:id="@+id/log_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:text="23-02-2022 11:44"/>
-                </RelativeLayout>
+                        android:text="0000-00-00 00:00"
+                        android:gravity="right"
+                        android:textColor="@color/black"/>
 
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow15"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/text_tabel_data_log"
+                    android:paddingBottom="15dp">
+
+                    <TextView
+                        android:id="@+id/log_note"
+                        android:text="-"
+                        android:textColor="@color/black" />
+
+                </TableRow>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_child"
@@ -410,105 +441,9 @@
                     android:layout_marginTop="20dp"
                     tools:listitem="@layout/item_child" />
 
-            </RelativeLayout>
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
-    </androidx.core.widget.NestedScrollView>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        tools:ignore="HardcodedText">
-        <!--This will be the parent Floating Action Button-->
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/add_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="#FF6965"
-            android:text="Actions"
-            android:textColor="@color/white"
-            app:icon="@drawable/plus"
-            app:iconTint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-        <!--Floating action button for add alarm-->
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/reject_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:backgroundTint="@color/white"
-            app:fabSize="normal"
-            app:layout_constraintBottom_toTopOf="@+id/add_fab"
-            app:layout_constraintEnd_toEndOf="@+id/add_fab"
-            app:srcCompat="@drawable/reject"
-            android:contentDescription="@string/app_name" />
-        <!--Action name text for the add alarm button-->
-        <TextView
-            android:id="@+id/reject_action_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/bg_dialog"
-            android:backgroundTint="@color/white"
-            android:padding="5dp"
-            android:text="REJECT"
-            app:layout_constraintBottom_toBottomOf="@+id/reject_fab"
-            app:layout_constraintEnd_toStartOf="@+id/reject_fab"
-            app:layout_constraintTop_toTopOf="@+id/reject_fab" />
-        <!--Floating action button for add person-->
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/karantina_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:backgroundTint="#F2F475"
-            app:fabSize="normal"
-            app:layout_constraintBottom_toTopOf="@+id/reject_fab"
-            app:layout_constraintEnd_toEndOf="@+id/reject_fab"
-            app:layout_constraintStart_toStartOf="@+id/reject_fab"
-            app:srcCompat="@drawable/quarantine"
-            android:contentDescription="@string/app_name" />
-        <!--Action name text for the add person button-->
-        <TextView
-            android:id="@+id/karantina_action_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:text="KARANTINA"
-            android:background="@drawable/bg_dialog"
-            android:backgroundTint="#F2F475"
-            android:padding="5dp"
-            app:layout_constraintBottom_toBottomOf="@+id/karantina_fab"
-            app:layout_constraintEnd_toStartOf="@+id/karantina_fab"
-            app:layout_constraintTop_toTopOf="@+id/karantina_fab" />
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/lulus_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:backgroundTint="#83E78D"
-            app:fabSize="normal"
-            app:layout_constraintBottom_toTopOf="@+id/karantina_fab"
-            app:layout_constraintEnd_toEndOf="@+id/karantina_fab"
-            app:layout_constraintStart_toStartOf="@+id/karantina_fab"
-            app:srcCompat="@drawable/passed"
-            android:contentDescription="@string/app_name" />
-        <!--Action name text for the add person button-->
-        <TextView
-            android:id="@+id/lulus_action_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/bg_dialog"
-            android:backgroundTint="#83E78D"
-            android:padding="5dp"
-            android:text="LULUS"
-            app:layout_constraintBottom_toBottomOf="@+id/lulus_fab"
-            app:layout_constraintEnd_toStartOf="@+id/lulus_fab"
-            app:layout_constraintTop_toTopOf="@+id/lulus_fab" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

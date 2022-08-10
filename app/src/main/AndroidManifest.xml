@@ -35,6 +35,12 @@
         <activity android:name=".RejectActivity" />
         <activity android:name=".CheckerActivity" />
         <activity android:name=".MainActivity"/>
+        <activity android:name=".msglow.ScannerActivity"
+
+            android:exported="true">
+
+        </activity>
+        <activity android:name=".msglow.MsglowActivity"/>
     </application>
 
 </manifest>

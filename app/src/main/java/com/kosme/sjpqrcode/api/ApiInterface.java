@@ -5,8 +5,10 @@ import com.kosme.sjpqrcode.model.Login;
 import com.kosme.sjpqrcode.model.Reject;
 import com.kosme.sjpqrcode.model.Replace;
 import com.kosme.sjpqrcode.model.Response;
+import com.kosme.sjpqrcode.model.ResponseCheckUpdate;
 import com.kosme.sjpqrcode.model.ResponseReject;
 import com.kosme.sjpqrcode.model.ResponseStatus;
+import com.kosme.sjpqrcode.msglow.ModelData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -62,6 +65,14 @@ public interface ApiInterface {
                                        @Query("barcode") String barcode,
                                        @Query("note") String note,
                                        @Header ("Authorization") String token);
+
+    @GET("kci")
+    Call<ModelData> getmsglow(@Query("barcode") String barcode);
+
+
+    @Headers("Content-Type: application/json")
+    @GET("check_data_qr_pallet")
+    Call<ResponseCheckUpdate> checkdata(@Query("barcode") String barcode);
 
 
 }

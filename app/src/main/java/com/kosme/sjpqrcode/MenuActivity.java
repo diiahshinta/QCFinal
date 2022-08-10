@@ -34,35 +34,16 @@ public class MenuActivity extends AppCompatActivity {
         String json = sharedPreferences.getString("Login", null);
         Login login = gson.fromJson(json, Login.class);
 
-        palet = findViewById(R.id.menu_pallet);
+        palet = findViewById(R.id.menu_palet);
         box = findViewById(R.id.menu_carton);
         inner = findViewById(R.id.menu_inner);
         product = findViewById(R.id.menu_product);
         nama = findViewById(R.id.txt_name);
         email = findViewById(R.id.txt_email);
 
-        nama.setText(login.getUser().getName());
+        nama.setText("Hello, " + login.getUser().getName() + "!");
         email.setText(login.getUser().getEmail());
 
-        imgPalet = palet.findViewById(R.id.img_menu);
-        txtPalet = palet.findViewById(R.id.txt_title);
-        imgPalet.setImageResource(R.drawable.ic_pallet);
-        txtPalet.setText("Palet");
-
-        imgBox = box.findViewById(R.id.img_menu);
-        txtBox = box.findViewById(R.id.txt_title);
-        imgBox.setImageResource(R.drawable.ic_carton);
-        txtBox.setText("Master Box");
-
-        imgInner = inner.findViewById(R.id.img_menu);
-        txtInner = inner.findViewById(R.id.txt_title);
-        imgInner.setImageResource(R.drawable.ic_inner);
-        txtInner.setText("Inner Box");
-
-        imgProduct = product.findViewById(R.id.img_menu);
-        txtProduct = product.findViewById(R.id.txt_title);
-        imgProduct.setImageResource(R.drawable.ic_product);
-        txtProduct.setText("Product");
 
         palet.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/SJPQRCode/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14635416666666667" />
+        <entry key="..\:/SJPQRCode/app/src/main/res/drawable/bg_bottom.xml" value="0.290625" />
         <entry key="..\:/SJPQRCode/app/src/main/res/drawable/bg_dialog.xml" value="0.1" />
         <entry key="..\:/SJPQRCode/app/src/main/res/drawable/bg_menu.xml" value="0.2638888888888889" />
+        <entry key="..\:/SJPQRCode/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.290625" />
+        <entry key="..\:/SJPQRCode/app/src/main/res/drawable/shape_white_pop_up.xml" value="0.290625" />
         <entry key="..\:/SJPQRCode/app/src/main/res/layout/activity_checker.xml" value="0.264" />
         <entry key="..\:/SJPQRCode/app/src/main/res/layout/activity_detail_inner_box.xml" value="0.27447916666666666" />
         <entry key="..\:/SJPQRCode/app/src/main/res/layout/activity_detail_master_box.xml" value="0.27447916666666666" />
@@ -15,15 +19,22 @@
         <entry key="..\:/SJPQRCode/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/SJPQRCode/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/SJPQRCode/app/src/main/res/layout/activity_menu.xml" value="0.27447916666666666" />
+        <entry key="..\:/SJPQRCode/app/src/main/res/layout/activity_msglow.xml" value="0.27447916666666666" />
         <entry key="..\:/SJPQRCode/app/src/main/res/layout/activity_reject.xml" value="0.2794871794871795" />
+        <entry key="..\:/SJPQRCode/app/src/main/res/layout/activity_scanner.xml" value="0.27447916666666666" />
         <entry key="..\:/SJPQRCode/app/src/main/res/layout/activity_splashscreen.xml" value="0.27447916666666666" />
         <entry key="..\:/SJPQRCode/app/src/main/res/layout/dialog_data.xml" value="0.264" />
         <entry key="..\:/SJPQRCode/app/src/main/res/layout/dialog_replace.xml" value="0.2" />
+        <entry key="..\:/SJPQRCode/app/src/main/res/layout/form_desc.xml" value="0.27447916666666666" />
         <entry key="..\:/SJPQRCode/app/src/main/res/layout/item_batch.xml" value="0.27447916666666666" />
         <entry key="..\:/SJPQRCode/app/src/main/res/layout/item_child.xml" value="0.39700996677740863" />
         <entry key="..\:/SJPQRCode/app/src/main/res/layout/item_data.xml" value="0.14375" />
         <entry key="..\:/SJPQRCode/app/src/main/res/layout/item_detail.xml" value="0.27447916666666666" />
         <entry key="..\:/SJPQRCode/app/src/main/res/layout/item_menu.xml" value="0.536" />
+        <entry key="..\:/SJPQRCode/app/src/main/res/layout/item_msglow.xml" value="0.32055961070559613" />
+        <entry key="..\:/SJPQRCode/app/src/main/res/layout/pop_up_status.xml" value="0.27447916666666666" />
+        <entry key="..\:/SJPQRCode/app/src/main/res/layout/pop_up_success.xml" value="0.27447916666666666" />
+        <entry key="..\:/SJPQRCode/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14635416666666667" />
         <entry key="..\:/SJPQRCode/app/src/main/res/xml/network_security_config.xml" value="0.1" />
       </map>
     </option>

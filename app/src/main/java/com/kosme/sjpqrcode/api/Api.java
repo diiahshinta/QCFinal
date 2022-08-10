@@ -1,8 +1,10 @@
 package com.kosme.sjpqrcode.api;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.IOException;
 import java.security.cert.CertificateException;
 import java.util.concurrent.TimeUnit;
 
@@ -13,67 +15,78 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class Api {
-    //for all
-    //public static final String BASE_URL = "http://dev.kosme.co.id/diah/qr/api/";
-    public static final String BASE_URL = "http://track.kosme.co.id/api/";
-
-    //for production only
-    //public static final String BASE_URL = "http://172.16.3.38:8000/";
-
+    public static final String BASE_URL = "http://qr.kosme.co.id/api/";
+    public static final String BASE_URL_2 = "https://app.sandbox-kosme.com/qr/";
     private static Retrofit retrofit = null;
 
 
-    public static Retrofit getClient() {
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.setLenient();
-        Gson gson = gsonBuilder.create();
+    public static Retrofit getClient2() {
 
-        OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
-                .connectTimeout(60, TimeUnit.SECONDS)
-                .readTimeout(60, TimeUnit.SECONDS)
-                .writeTimeout(60, TimeUnit.SECONDS)
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient.Builder client = new OkHttpClient.Builder();
+        client.readTimeout(10, TimeUnit.MINUTES);
+        client.writeTimeout(10, TimeUnit.MINUTES);
+        client.connectTimeout(10, TimeUnit.MINUTES);
+        client.addInterceptor(interceptor);
+        client.addInterceptor(new Interceptor() {
+            @Override
+            public okhttp3.Response intercept(Chain chain) throws IOException {
+                Request request = chain.request();
+
+                return chain.proceed(request);
+            }
+        });
+        GsonBuilder gsonBuilder=new GsonBuilder();
+        gsonBuilder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
+        gsonBuilder.setLenient();
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL_2)
+                .client(client.build())
+                .client(getUnsafeOkHttpClient())
+                .addConverterFactory(GsonConverterFactory.create(gsonBuilder.create()))
                 .build();
 
-        if (retrofit == null) {
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    //.addConverterFactory(ScalarsConverterFactory.create())
-                    .client(getUnsafeOkHttpClient())
-                    .client(okHttpClient)
-                    .build();
-        }
+
         return retrofit;
     }
 
-    public static Retrofit getData(String authToken) {
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.setLenient();
-        Gson gson = gsonBuilder.create();
+    public static Retrofit getClient() {
 
-        OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
-                .connectTimeout(60, TimeUnit.SECONDS)
-                .readTimeout(60, TimeUnit.SECONDS)
-                .writeTimeout(60, TimeUnit.SECONDS)
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient.Builder client = new OkHttpClient.Builder();
+        client.readTimeout(60, TimeUnit.SECONDS);
+        client.writeTimeout(60, TimeUnit.SECONDS);
+        client.connectTimeout(60, TimeUnit.SECONDS);
+        client.addInterceptor(interceptor);
+        client.addInterceptor(new Interceptor() {
+            @Override
+            public okhttp3.Response intercept(Chain chain) throws IOException {
+                Request request = chain.request();
+
+                return chain.proceed(request);
+            }
+        });
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .client(client.build())
+                .client(getUnsafeOkHttpClient())
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
 
-
-        if (retrofit == null) {
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    //.addConverterFactory(ScalarsConverterFactory.create())
-                    .client(getUnsafeOkHttpClient())
-                    .client(okHttpClient)
-                    .build();
-        }
         return retrofit;
     }
 

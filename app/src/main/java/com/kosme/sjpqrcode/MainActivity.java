@@ -28,7 +28,10 @@ import com.kosme.sjpqrcode.api.Api;
 import com.kosme.sjpqrcode.api.ApiInterface;
 import com.kosme.sjpqrcode.model.ProductData;
 import com.kosme.sjpqrcode.model.Replace;
+import com.kosme.sjpqrcode.model.ResponseCheckUpdate;
 
+import java.io.IOException;
+import java.net.SocketTimeoutException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -44,13 +47,8 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
 
     ZXingScannerView  mScannerView;
     FrameLayout camera;
-    ApiInterface apiInterface;
     String id, code, bar, pd, ed;
-    private Dialog customDialog;
-    EditText oldBarcode, newCode, batch, prodDate, expiredDate;
-    final Calendar calendar = Calendar.getInstance();
-    private DatePickerDialog datePicker;
-    TextView btnReplace;
+    ResponseCheckUpdate test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,10 +58,6 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         id = getIntent().getStringExtra("level");
         code = getIntent().getStringExtra("code");
         bar = getIntent().getStringExtra("old");
-
-
-        apiInterface = Api.getClient().create(ApiInterface.class);
-
         camera = findViewById(R.id.frame_layout_camera);
 
         initScannerView();
@@ -123,31 +117,59 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
 
         if (code != null && code.equals("reject")) {
             Intent i = new Intent(MainActivity.this, RejectActivity.class);
-            i.putExtra("barcode", rawResult.getText());
+            i.putExtra("barcode", replaceString(rawResult.getText()));
             startActivity(i);
         } else if (code != null && code.equals("qc")){
             Intent i = new Intent(MainActivity.this, CheckerActivity.class);
-            i.putExtra("barcode", rawResult.getText());
+            i.putExtra("barcode", replaceString(rawResult.getText()));
             startActivity(i);
         } else {
             if (id.equals("4")){
                 Intent i = new Intent(MainActivity.this, PaletActivity.class);
-                i.putExtra("barcode", rawResult.getText());
+                i.putExtra("barcode", replaceString(rawResult.getText()));
                 startActivity(i);
             } else if (id.equals("3")){
                 Intent i = new Intent(MainActivity.this, MasterBoxActivity.class);
-                i.putExtra("barcode", rawResult.getText());
+                i.putExtra("barcode", replaceString(rawResult.getText()));
                 startActivity(i);
             } else if (id.equals("2")){
                 Intent i = new Intent(MainActivity.this, InnerboxActivity.class);
-                i.putExtra("barcode", rawResult.getText());
+                i.putExtra("barcode", replaceString(rawResult.getText()));
                 startActivity(i);
             } else if (id.equals("1")){
                 Intent i = new Intent(MainActivity.this, ProductActivity.class);
-                i.putExtra("barcode", rawResult.getText());
+                i.putExtra("barcode", replaceString(rawResult.getText()));
                 startActivity(i);
             }
         }
+
+//        if (code != null && code.equals("reject")) {
+//            Intent i = new Intent(MainActivity.this, RejectActivity.class);
+//            i.putExtra("barcode", rawResult.getText());
+//            startActivity(i);
+//        } else if (code != null && code.equals("qc")){
+//            Intent i = new Intent(MainActivity.this, CheckerActivity.class);
+//            i.putExtra("barcode", rawResult.getText());
+//            startActivity(i);
+//        } else {
+//            if (id.equals("4")){
+//                Intent i = new Intent(MainActivity.this, PaletActivity.class);
+//                i.putExtra("barcode", rawResult.getText());
+//                startActivity(i);
+//            } else if (id.equals("3")){
+//                Intent i = new Intent(MainActivity.this, MasterBoxActivity.class);
+//                i.putExtra("barcode", rawResult.getText());
+//                startActivity(i);
+//            } else if (id.equals("2")){
+//                Intent i = new Intent(MainActivity.this, InnerboxActivity.class);
+//                i.putExtra("barcode", rawResult.getText());
+//                startActivity(i);
+//            } else if (id.equals("1")){
+//                Intent i = new Intent(MainActivity.this, ProductActivity.class);
+//                i.putExtra("barcode", rawResult.getText());
+//                startActivity(i);
+//            }
+//        }
 
     }
 
@@ -162,112 +184,8 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
     }
 
 
-//    private void initCustomDialog(String newBarcode){
-//        customDialog = new Dialog(MainActivity.this);
-//        customDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        customDialog.setContentView(R.layout.dialog_replace);
-//        customDialog.setCancelable(true);
-//
-//        oldBarcode = customDialog.findViewById(R.id.edt_old);
-//        newCode = customDialog.findViewById(R.id.edt_new);
-//        batch = customDialog.findViewById(R.id.edt_batch);
-//        prodDate = customDialog.findViewById(R.id.edt_production);
-//        expiredDate = customDialog.findViewById(R.id.edt_ed);
-//        btnReplace = customDialog.findViewById(R.id.btn_replace);
-//        customDialog.show();
-//
-//        oldBarcode.setText(bar);
-//        newCode.setText(newBarcode);
-//        oldBarcode.setClickable(false);
-//        oldBarcode.setFocusable(false);
-//        newCode.setClickable(false);
-//        newCode.setFocusable(false);
-//        prodDate.setFocusable(false);
-//        expiredDate.setFocusable(false);
-//
-//        prodDate.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                final Calendar c = Calendar.getInstance();
-//                int mYear = c.get(Calendar.YEAR); // current year
-//                int mMonth = c.get(Calendar.MONTH); // current month
-//                int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
-//                // date picker dialog
-//                datePicker = new DatePickerDialog(MainActivity.this,
-//                        new DatePickerDialog.OnDateSetListener() {
-//
-//                            @Override
-//                            public void onDateSet(DatePicker view, int year,
-//                                                  int monthOfYear, int dayOfMonth) {
-//                                // set day of month , month and year value in the edit text
-//                                prodDate.setText(year + "-"
-//                                        + (monthOfYear + 1) + "-" + dayOfMonth);
-//                                pd = year + "-"
-//                                        + (monthOfYear + 1) + "-" + dayOfMonth;
-//
-//                            }
-//                        }, mYear, mMonth, mDay);
-//                datePicker.show();
-//
-//            }
-//        });
-//
-//        expiredDate.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                final Calendar c = Calendar.getInstance();
-//                int mYear = c.get(Calendar.YEAR); // current year
-//                int mMonth = c.get(Calendar.MONTH); // current month
-//                int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
-//                // date picker dialog
-//                datePicker = new DatePickerDialog(MainActivity.this,
-//                        new DatePickerDialog.OnDateSetListener() {
-//
-//                            @Override
-//                            public void onDateSet(DatePicker view, int year,
-//                                                  int monthOfYear, int dayOfMonth) {
-//                                // set day of month , month and year value in the edit text
-//                                expiredDate.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
-//                                ed = year + "-" + (monthOfYear + 1) + "-" + dayOfMonth;
-//
-//                            }
-//                        }, mYear, mMonth, mDay);
-//                datePicker.show();
-//
-//            }
-//        });
-//
-//        btnReplace.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                replaceProduct(bar, newBarcode, batch.getText().toString(), pd, ed);
-//            }
-//        });
-//    }
-
-    public void replaceProduct(String oldB, String newB, String newBatch, String pd, String ed){
-        apiInterface.replace(oldB, newB, newBatch, pd, ed).enqueue(new Callback<Replace>() {
-            @Override
-            public void onResponse(Call<Replace> call, Response<Replace> response) {
-                if (response.body().getStatus().equals("success")){
-                    Toast.makeText(MainActivity.this, "Reject Produk Sukses", Toast.LENGTH_SHORT).show();
-                    customDialog.dismiss();
-                    Intent intent = new Intent(MainActivity.this, ItemActivity.class);
-                    startActivity(intent);
-                    finish();
-                } else {
-                    Toast.makeText(MainActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Replace> call, Throwable t) {
-                Toast.makeText(MainActivity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+    String replaceString(String string) {
+        return string.replaceAll("[^a-zA-Z0-9-/,.]","");
     }
-
-
 
 }

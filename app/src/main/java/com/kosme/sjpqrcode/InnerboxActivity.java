@@ -74,83 +74,83 @@ public class InnerboxActivity extends AppCompatActivity {
 
         getData(barcode, token);
 
-        action = findViewById(R.id.add_fab);
-        reject = findViewById(R.id.reject_fab);
-        karantina = findViewById(R.id.karantina_fab);
-        lulus = findViewById(R.id.lulus_fab);
-        txtreject = findViewById(R.id.reject_action_text);
-        txtkarantina = findViewById(R.id.karantina_action_text);
-        txtlulus = findViewById(R.id.lulus_action_text);
+//        action = findViewById(R.id.add_fab);
+//        reject = findViewById(R.id.reject_fab);
+//        karantina = findViewById(R.id.karantina_fab);
+//        lulus = findViewById(R.id.lulus_fab);
+//        txtreject = findViewById(R.id.reject_action_text);
+//        txtkarantina = findViewById(R.id.karantina_action_text);
+//        txtlulus = findViewById(R.id.lulus_action_text);
 
-        reject.setVisibility(View.GONE);
-        karantina.setVisibility(View.GONE);
-        lulus.setVisibility(View.GONE);
-        txtreject.setVisibility(View.GONE);
-        txtkarantina.setVisibility(View.GONE);
-        txtlulus.setVisibility(View.GONE);
-        isAllFabsVisible = false;
-
-        if (login.getAuth().getPermission().contains("dataprint.karantina")){
-            action.setVisibility(View.VISIBLE);
-        } else {
-            action.setVisibility(View.GONE);
-        }
-
-        action.shrink();
-
-        action.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if (!isAllFabsVisible) {
-
-                            reject.show();
-                            karantina.show();
-                            lulus.show();
-                            txtreject
-                                    .setVisibility(View.VISIBLE);
-                            txtkarantina
-                                    .setVisibility(View.VISIBLE);
-                            txtlulus
-                                    .setVisibility(View.VISIBLE);
-                            action.extend();
-                            isAllFabsVisible = true;
-                        } else {
-                            reject.hide();
-                            karantina.hide();
-                            lulus.hide();
-                            txtreject
-                                    .setVisibility(View.GONE);
-                            txtkarantina
-                                    .setVisibility(View.GONE);
-                            txtlulus
-                                    .setVisibility(View.GONE);
-                            action.shrink();
-                            isAllFabsVisible = false;
-                        }
-                    }
-                });
-
-        reject.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialog(InnerboxActivity.this, "reject", "2", barcode);
-            }
-        });
-
-        karantina.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialog(InnerboxActivity.this, "karantina", "2", barcode);
-            }
-        });
-
-        lulus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialog(InnerboxActivity.this, "lulus", "2", barcode);
-            }
-        });
+//        reject.setVisibility(View.GONE);
+//        karantina.setVisibility(View.GONE);
+//        lulus.setVisibility(View.GONE);
+//        txtreject.setVisibility(View.GONE);
+//        txtkarantina.setVisibility(View.GONE);
+//        txtlulus.setVisibility(View.GONE);
+//        isAllFabsVisible = false;
+//
+//        if (login.getAuth().getPermission().contains("dataprint.karantina")){
+//            action.setVisibility(View.VISIBLE);
+//        } else {
+//            action.setVisibility(View.GONE);
+//        }
+//
+//        action.shrink();
+//
+//        action.setOnClickListener(
+//                new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        if (!isAllFabsVisible) {
+//
+//                            reject.show();
+//                            karantina.show();
+//                            lulus.show();
+//                            txtreject
+//                                    .setVisibility(View.VISIBLE);
+//                            txtkarantina
+//                                    .setVisibility(View.VISIBLE);
+//                            txtlulus
+//                                    .setVisibility(View.VISIBLE);
+//                            action.extend();
+//                            isAllFabsVisible = true;
+//                        } else {
+//                            reject.hide();
+//                            karantina.hide();
+//                            lulus.hide();
+//                            txtreject
+//                                    .setVisibility(View.GONE);
+//                            txtkarantina
+//                                    .setVisibility(View.GONE);
+//                            txtlulus
+//                                    .setVisibility(View.GONE);
+//                            action.shrink();
+//                            isAllFabsVisible = false;
+//                        }
+//                    }
+//                });
+//
+//        reject.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                showDialog(InnerboxActivity.this, "reject", "2", barcode);
+//            }
+//        });
+//
+//        karantina.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                showDialog(InnerboxActivity.this, "karantina", "2", barcode);
+//            }
+//        });
+//
+//        lulus.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                showDialog(InnerboxActivity.this, "lulus", "2", barcode);
+//            }
+//        });
 
         logname = findViewById(R.id.log_name);
         lognote = findViewById(R.id.log_note);
