@@ -38,7 +38,6 @@
             android:id="@+id/txt_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hello_akun"
             android:textColor="@color/black"
             android:textSize="26dp"
             android:textStyle="bold" />
@@ -61,7 +60,6 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:layout_toEndOf="@+id/image_username"
-            android:text="@string/email_akun"
             android:textColor="@color/black"
             android:textSize="12dp" />
 

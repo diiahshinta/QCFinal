@@ -166,7 +166,6 @@ public class MasterBoxActivity extends AppCompatActivity {
                                 TextView bc = v.findViewById(R.id.txt_barcode);
                                 Toast.makeText(MasterBoxActivity.this, bc.getText().toString(), Toast.LENGTH_SHORT).show();
                                 Intent i = new Intent(MasterBoxActivity.this, InnerboxActivity.class);
-                                i.putExtra("barcode", bc.getText().toString());
                                 startActivity(i);
                             }
                         });

@@ -18,7 +18,6 @@ import com.kosme.sjpqrcode.model.User;
 public class MenuActivity extends AppCompatActivity {
 
     View palet, box, inner, product;
-    ImageView imgPalet, imgBox, imgInner, imgProduct;
     TextView txtPalet, txtBox, txtInner, txtProduct, nama, email;
 
     SharedPreferences sharedPreferences;

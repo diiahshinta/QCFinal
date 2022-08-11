@@ -176,7 +176,6 @@ public class InnerboxActivity extends AppCompatActivity {
                                 Toast.makeText(InnerboxActivity.this, bc.getText().toString(), Toast.LENGTH_SHORT).show();
                                 Intent i = new Intent(InnerboxActivity.this, ProductActivity.class);
                                 i.putExtra("barcode", bc.getText().toString());
-                                Log.d("tesdata", bc.getText().toString());
                                 startActivity(i);
                             }
                         });

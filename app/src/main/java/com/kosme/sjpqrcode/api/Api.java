@@ -37,6 +37,7 @@ public class Api {
         client.readTimeout(60, TimeUnit.SECONDS);
         client.writeTimeout(60, TimeUnit.SECONDS);
         client.connectTimeout(60, TimeUnit.SECONDS);
+        client.retryOnConnectionFailure(false);
         client.addInterceptor(interceptor);
         client.addInterceptor(new Interceptor() {
             @Override

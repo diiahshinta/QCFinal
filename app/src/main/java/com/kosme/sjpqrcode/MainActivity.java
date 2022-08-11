@@ -143,34 +143,6 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
             }
         }
 
-//        if (code != null && code.equals("reject")) {
-//            Intent i = new Intent(MainActivity.this, RejectActivity.class);
-//            i.putExtra("barcode", rawResult.getText());
-//            startActivity(i);
-//        } else if (code != null && code.equals("qc")){
-//            Intent i = new Intent(MainActivity.this, CheckerActivity.class);
-//            i.putExtra("barcode", rawResult.getText());
-//            startActivity(i);
-//        } else {
-//            if (id.equals("4")){
-//                Intent i = new Intent(MainActivity.this, PaletActivity.class);
-//                i.putExtra("barcode", rawResult.getText());
-//                startActivity(i);
-//            } else if (id.equals("3")){
-//                Intent i = new Intent(MainActivity.this, MasterBoxActivity.class);
-//                i.putExtra("barcode", rawResult.getText());
-//                startActivity(i);
-//            } else if (id.equals("2")){
-//                Intent i = new Intent(MainActivity.this, InnerboxActivity.class);
-//                i.putExtra("barcode", rawResult.getText());
-//                startActivity(i);
-//            } else if (id.equals("1")){
-//                Intent i = new Intent(MainActivity.this, ProductActivity.class);
-//                i.putExtra("barcode", rawResult.getText());
-//                startActivity(i);
-//            }
-//        }
-
     }
 
     @Override

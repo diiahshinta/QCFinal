@@ -147,6 +147,7 @@ public class PaletActivity extends AppCompatActivity {
             public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
 
                 Response data = response.body();
+                updatedb(barcode);
                 if (data == null){
                     Toast.makeText(PaletActivity.this, "No data available!", Toast.LENGTH_SHORT).show();
                 } else {
@@ -189,12 +190,9 @@ public class PaletActivity extends AppCompatActivity {
                             }
                         });
 
-                        updatedb(barcode);
 
                     } else {
                         Toast.makeText(PaletActivity.this, data.getMessage(), Toast.LENGTH_LONG).show();
-
-                        updatedb(barcode);
                     }
 
                 }
@@ -214,6 +212,7 @@ public class PaletActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseCheckUpdate> call, retrofit2.Response<ResponseCheckUpdate> response) {
                 loading.dismiss();
+                Log.d("responseok", new Gson().toJson(response.body()));
                 frameLayout.setVisibility(View.VISIBLE);
                 test = response.body();
                 info.setText(test.getDesc());
@@ -227,9 +226,8 @@ public class PaletActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ResponseCheckUpdate> call, Throwable t) {
                 loading.dismiss();
-                frameLayout.setVisibility(View.VISIBLE);
                 if(t instanceof SocketTimeoutException){
-                    info.setText(t.getMessage());
+                    Log.d("responseoktimeout", t.getMessage());
                 }
             }
         });
