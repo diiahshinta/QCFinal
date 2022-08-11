@@ -8,6 +8,7 @@ import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ public class ProductActivity extends AppCompatActivity {
     String barcode, token;
     TextView produk, batch, level, scan, ed, md, station, bar, parent, username, nie, sku;
     ProgressDialog loading;
+    ImageButton back;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,6 +63,15 @@ public class ProductActivity extends AppCompatActivity {
         parent = findViewById(R.id.txt_parent);
         nie = findViewById(R.id.txt_nie);
         sku = findViewById(R.id.txt_sku);
+        back = findViewById(R.id.btn_back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+                finish();
+            }
+        });
 
 
 

@@ -34,9 +34,9 @@ public class Api {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient.Builder client = new OkHttpClient.Builder();
-        client.readTimeout(10, TimeUnit.MINUTES);
-        client.writeTimeout(10, TimeUnit.MINUTES);
-        client.connectTimeout(10, TimeUnit.MINUTES);
+        client.readTimeout(60, TimeUnit.SECONDS);
+        client.writeTimeout(60, TimeUnit.SECONDS);
+        client.connectTimeout(60, TimeUnit.SECONDS);
         client.addInterceptor(interceptor);
         client.addInterceptor(new Interceptor() {
             @Override

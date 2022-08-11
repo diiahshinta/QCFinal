@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/form_lulus"
+        android:id="@+id/img_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/form_desc_lulus"
@@ -19,23 +19,23 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/input_desc_lulus"
+        android:id="@+id/input_desc"
         android:layout_width="match_parent"
         android:layout_height="235dp"
         android:hint="Deskripsi"
         style="@style/form_deskripsi"
-        app:layout_constraintTop_toTopOf="@+id/form_lulus" />
+        app:layout_constraintTop_toTopOf="@+id/img_title" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/form_lulus"
-        app:layout_constraintTop_toBottomOf="@+id/input_desc_lulus">
+        app:layout_constraintBottom_toBottomOf="@+id/img_title"
+        app:layout_constraintTop_toBottomOf="@+id/input_desc">
 
         <Button
-            android:id="@+id/btn_lulus_kembali"
+            android:id="@+id/btn_kembali"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="10dp"
             android:text="KEMBALI"
@@ -44,7 +44,7 @@
             style="@style/btn_form_deskripsi" />
 
         <Button
-            android:id="@+id/btn_lulus_ok"
+            android:id="@+id/btn_ok"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="30dp"
             android:backgroundTint="@color/pink_1"

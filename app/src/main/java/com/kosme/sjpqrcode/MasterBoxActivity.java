@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
@@ -41,15 +44,10 @@ public class MasterBoxActivity extends AppCompatActivity {
 
     ApiInterface apiInterface;
     String barcode, token;
-    TextView produk, level, scan, ed, md, station, bar, parent, count, username, pcs, txtreject, txtkarantina, txtlulus, status, logname, logtime, lognote, nie, sku;
+    TextView produk, level, scan, ed, md, station, bar, parent, count, username, pcs,status, logname, logtime, lognote, nie, sku;
     RecyclerView rvChild, rvBatch;
     ProgressDialog loading;
-    Integer sum = 0;
-    Button check;
-    FloatingActionButton reject, karantina, lulus;
-    SharedPreferences sharedPreferences;
-    ExtendedFloatingActionButton action;
-    Boolean isAllFabsVisible;
+    ImageButton back;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -68,83 +66,15 @@ public class MasterBoxActivity extends AppCompatActivity {
 
         getData(barcode, token);
 
-//        action = findViewById(R.id.add_fab);
-//        reject = findViewById(R.id.reject_fab);
-//        karantina = findViewById(R.id.karantina_fab);
-//        lulus = findViewById(R.id.lulus_fab);
-//        txtreject = findViewById(R.id.reject_action_text);
-//        txtkarantina = findViewById(R.id.karantina_action_text);
-//        txtlulus = findViewById(R.id.lulus_action_text);
+        back = findViewById(R.id.btn_back);
 
-//        reject.setVisibility(View.GONE);
-//        karantina.setVisibility(View.GONE);
-//        lulus.setVisibility(View.GONE);
-//        txtreject.setVisibility(View.GONE);
-//        txtkarantina.setVisibility(View.GONE);
-//        txtlulus.setVisibility(View.GONE);
-//        isAllFabsVisible = false;
-//
-//        if (login.getAuth().getPermission().contains("dataprint.karantina")){
-//            action.setVisibility(View.VISIBLE);
-//        } else {
-//            action.setVisibility(View.GONE);
-//        }
-//
-//        action.shrink();
-//
-//        action.setOnClickListener(
-//                new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        if (!isAllFabsVisible) {
-//
-//                            reject.show();
-//                            karantina.show();
-//                            lulus.show();
-//                            txtreject
-//                                    .setVisibility(View.VISIBLE);
-//                            txtkarantina
-//                                    .setVisibility(View.VISIBLE);
-//                            txtlulus
-//                                    .setVisibility(View.VISIBLE);
-//                            action.extend();
-//                            isAllFabsVisible = true;
-//                        } else {
-//                            reject.hide();
-//                            karantina.hide();
-//                            lulus.hide();
-//                            txtreject
-//                                    .setVisibility(View.GONE);
-//                            txtkarantina
-//                                    .setVisibility(View.GONE);
-//                            txtlulus
-//                                    .setVisibility(View.GONE);
-//                            action.shrink();
-//                            isAllFabsVisible = false;
-//                        }
-//                    }
-//                });
-//
-//        reject.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                showDialog(MasterBoxActivity.this, "reject", "3", barcode);
-//            }
-//        });
-//
-//        karantina.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                showDialog(MasterBoxActivity.this, "karantina", "3", barcode);
-//            }
-//        });
-//
-//        lulus.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                showDialog(MasterBoxActivity.this, "lulus", "3", barcode);
-//            }
-//        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+                finish();
+            }
+        });
 
         logname = findViewById(R.id.log_name);
         lognote = findViewById(R.id.log_note);
@@ -164,6 +94,7 @@ public class MasterBoxActivity extends AppCompatActivity {
         status = findViewById(R.id.txt_status);
         nie = findViewById(R.id.txt_nie);
         sku = findViewById(R.id.txt_sku);
+
         rvChild = findViewById(R.id.rv_child);
         rvChild.setLayoutManager(new LinearLayoutManager(this));
         rvBatch = findViewById(R.id.rv_batch);
@@ -280,43 +211,83 @@ public class MasterBoxActivity extends AppCompatActivity {
 
 
 
-    public void showDialog(Activity activity, String title, String level, String barcode){
+    public void showDialog(Activity activity, String barcode){
         final Dialog dialog = new Dialog(activity);
+
+
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setCancelable(false);
-        dialog.setContentView(R.layout.dialog_replace);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.pop_up_status);
 
-        TextView text = (TextView) dialog.findViewById(R.id.title);
-        EditText edtnote = (EditText) dialog.findViewById(R.id.edt_desc);
-        Button btnok = (Button) dialog.findViewById(R.id.btn_ok);
-        Button btncancel = (Button) dialog.findViewById(R.id.btn_cancel);
-        text.setText(title);
+        ImageButton btnLulus = (ImageButton) dialog.findViewById(R.id.btn_lulus);
+        ImageButton btnKarantina = (ImageButton) dialog.findViewById(R.id.btn_karantina);
+        ImageButton btnReject = (ImageButton) dialog.findViewById(R.id.btn_reject);
 
-        btncancel.setOnClickListener(new View.OnClickListener() {
-
+        btnLulus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                showBottomSheetDialog("lulus", barcode);
                 dialog.dismiss();
             }
         });
 
-        btnok.setOnClickListener(new View.OnClickListener() {
+        btnKarantina.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (edtnote.getText().toString().equals("") || edtnote.getText().toString().equals(null)){
-                    Toast.makeText(MasterBoxActivity.this, "Keterangan harus diisi!", Toast.LENGTH_SHORT).show();
-                } else {
+                showBottomSheetDialog("karantina", barcode);
+                dialog.dismiss();
+            }
+        });
 
-                    checkProduct(title, level, barcode, edtnote.getText().toString());
-                    dialog.dismiss();
-
-                    getData(barcode, token);
-                }
+        btnReject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showBottomSheetDialog("reject", barcode);
+                dialog.dismiss();
             }
         });
 
         dialog.show();
 
+    }
+
+    private void showBottomSheetDialog(String status, String barcode) {
+
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
+        bottomSheetDialog.setContentView(R.layout.form_desc);
+
+        EditText notes = bottomSheetDialog.findViewById(R.id.input_desc);
+        ImageView img = bottomSheetDialog.findViewById(R.id.img_title);
+        Button ok = bottomSheetDialog.findViewById(R.id.btn_ok);
+        Button kembali = bottomSheetDialog.findViewById(R.id.btn_kembali);
+
+        if (status.equals("lulus")){
+            img.setImageResource(R.drawable.form_desc_lulus);
+        } else if (status.equals("karantina")){
+            img.setImageResource(R.drawable.form_desc_karantina);
+        } else {
+            img.setImageResource(R.drawable.form_desc_reject);
+        }
+
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (notes.getText().toString().equals("") || notes.getText().toString().isEmpty() || notes.getText().toString().equals(null)){
+                    Toast.makeText(v.getContext(), "Harap mengisikan deskripsi!", Toast.LENGTH_SHORT).show();
+                } else {
+                    checkProduct(status, "3", barcode, notes.getText().toString());
+                }
+            }
+        });
+
+        kembali.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetDialog.dismiss();
+            }
+        });
+
+        bottomSheetDialog.show();
     }
 
 }
