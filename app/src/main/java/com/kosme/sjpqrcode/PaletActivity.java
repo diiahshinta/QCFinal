@@ -240,6 +240,7 @@ public class PaletActivity extends AppCompatActivity {
             public void onResponse(Call<ResponseStatus> call, retrofit2.Response<ResponseStatus> response) {
                 loading.dismiss();
                 ResponseStatus data = response.body();
+                Log.d("tesdata", new Gson().toJson(data));
                 Toast.makeText(PaletActivity.this, "Status berhasil diupdate!" , Toast.LENGTH_SHORT).show();
             }
 

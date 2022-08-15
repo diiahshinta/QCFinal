@@ -42,9 +42,6 @@ public class LoginActivity extends AppCompatActivity {
         edtpassword = findViewById(R.id.edt_pass);
         apiInterface = Api.getClient().create(ApiInterface.class);
 
-//        edtemail.setText("maman@maman.com");
-//        edtpassword.setText("maman");
-
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override

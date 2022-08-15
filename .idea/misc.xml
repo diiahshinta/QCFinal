@@ -36,11 +36,13 @@
         <entry key="..\:/SJPQRCode/app/src/main/res/layout/pop_up_success.xml" value="0.27447916666666666" />
         <entry key="..\:/SJPQRCode/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14635416666666667" />
         <entry key="..\:/SJPQRCode/app/src/main/res/xml/network_security_config.xml" value="0.1" />
+        <entry key="..\:/Users/A7X/Documents/SJPQRCode/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1905" />
         <entry key="..\:/Users/A7X/Documents/SJPQRCode/app/src/main/res/drawable/btn_add.xml" value="0.3485" />
         <entry key="..\:/Users/A7X/Documents/SJPQRCode/app/src/main/res/drawable/form.xml" value="0.3485" />
         <entry key="..\:/Users/A7X/Documents/SJPQRCode/app/src/main/res/drawable/form_desc_karantina.xml" value="0.3485" />
         <entry key="..\:/Users/A7X/Documents/SJPQRCode/app/src/main/res/drawable/form_desc_lulus.xml" value="0.3485" />
         <entry key="..\:/Users/A7X/Documents/SJPQRCode/app/src/main/res/drawable/form_desc_reject.xml" value="0.3485" />
+        <entry key="..\:/Users/A7X/Documents/SJPQRCode/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1905" />
         <entry key="..\:/Users/A7X/Documents/SJPQRCode/app/src/main/res/drawable/shape_white_pop_up.xml" value="0.3485" />
         <entry key="..\:/Users/A7X/Documents/SJPQRCode/app/src/main/res/drawable/status_not.xml" value="0.3485" />
         <entry key="..\:/Users/A7X/Documents/SJPQRCode/app/src/main/res/drawable/status_ok.xml" value="0.3485" />
@@ -48,6 +50,7 @@
         <entry key="..\:/Users/A7X/Documents/SJPQRCode/app/src/main/res/layout/activity_detail_master_box.xml" value="0.1" />
         <entry key="..\:/Users/A7X/Documents/SJPQRCode/app/src/main/res/layout/activity_detail_palet.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/A7X/Documents/SJPQRCode/app/src/main/res/layout/activity_detail_produk.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/A7X/Documents/SJPQRCode/app/src/main/res/layout/activity_login.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/A7X/Documents/SJPQRCode/app/src/main/res/layout/activity_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/A7X/Documents/SJPQRCode/app/src/main/res/layout/form_desc.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/A7X/Documents/SJPQRCode/app/src/main/res/layout/pop_up_status.xml" value="0.36666666666666664" />
