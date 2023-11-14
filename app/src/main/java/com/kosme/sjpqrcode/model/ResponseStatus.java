@@ -8,7 +8,7 @@ public class ResponseStatus {
     private String status;
 
     @SerializedName("message")
-    private String message;
+    private Message message;
 
     @SerializedName("auth")
     private Auth auth;
@@ -21,7 +21,7 @@ public class ResponseStatus {
         return status;
     }
 
-    public String getMessage() {
+    public Message getMessage() {
         return message;
     }
 }

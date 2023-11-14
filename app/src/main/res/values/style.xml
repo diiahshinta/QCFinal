@@ -16,6 +16,11 @@
         <item name="android:textSize">16dp</item>
     </style>
 
+    <style name="WideDialog" parent="Base.Theme.AppCompat.Dialog">
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+    </style>
+
     <!-- POP UP -->
     <style name="text_pop_up_lulus">
         <item name="android:textColor">@color/green_1</item>

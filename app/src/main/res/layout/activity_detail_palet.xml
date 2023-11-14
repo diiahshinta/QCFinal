@@ -167,10 +167,12 @@
                         android:text=":"
                         style="@style/text_tabel_row_2"/>
 
-                    <TextView
-                        android:id="@+id/txt_expired_date"
-                        android:text="-"
-                        android:textColor="@color/black" />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_ed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false"
+                        tools:listitem="@layout/item_ed" />
 
                 </TableRow>
 
@@ -375,6 +377,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/txt_sku"
                         android:layout_toRightOf="@+id/titik"
+                        android:nestedScrollingEnabled="false"
                         tools:itemCount="4"
                         tools:listitem="@layout/item_batch" />
 

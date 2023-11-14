@@ -26,6 +26,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class Api {
     public static final String BASE_URL = "http://qr.kosme.co.id/api/";
     public static final String BASE_URL_2 = "https://app.sandbox-kosme.com/qr/";
+    public static final String BASE_URL_3 = "http://34.101.105.160:9000/";
     private static Retrofit retrofit = null;
 
 
@@ -53,6 +54,39 @@ public class Api {
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL_2)
+                .client(client.build())
+                .client(getUnsafeOkHttpClient())
+                .addConverterFactory(GsonConverterFactory.create(gsonBuilder.create()))
+                .build();
+
+
+        return retrofit;
+    }
+
+    public static Retrofit getClient3() {
+
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient.Builder client = new OkHttpClient.Builder();
+        client.readTimeout(60, TimeUnit.SECONDS);
+        client.writeTimeout(60, TimeUnit.SECONDS);
+        client.connectTimeout(60, TimeUnit.SECONDS);
+        client.retryOnConnectionFailure(false);
+        client.addInterceptor(interceptor);
+        client.addInterceptor(new Interceptor() {
+            @Override
+            public okhttp3.Response intercept(Chain chain) throws IOException {
+                Request request = chain.request();
+
+                return chain.proceed(request);
+            }
+        });
+        GsonBuilder gsonBuilder=new GsonBuilder();
+        gsonBuilder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
+        gsonBuilder.setLenient();
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL_3)
                 .client(client.build())
                 .client(getUnsafeOkHttpClient())
                 .addConverterFactory(GsonConverterFactory.create(gsonBuilder.create()))

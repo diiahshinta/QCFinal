@@ -10,6 +10,13 @@ public class Serial {
     @SerializedName("serialisasi")
     private String serialisasi;
 
+    @SerializedName("status")
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
     public String getBarcode() {
         return barcode;
     }

@@ -8,6 +8,7 @@ import com.kosme.sjpqrcode.model.Response;
 import com.kosme.sjpqrcode.model.ResponseCheckUpdate;
 import com.kosme.sjpqrcode.model.ResponseReject;
 import com.kosme.sjpqrcode.model.ResponseStatus;
+import com.kosme.sjpqrcode.model.Serialisasi;
 import com.kosme.sjpqrcode.msglow.ModelData;
 
 import java.util.ArrayList;
@@ -74,5 +75,6 @@ public interface ApiInterface {
     @GET("check_data_qr_pallet")
     Call<ResponseCheckUpdate> checkdata(@Query("barcode") String barcode);
 
-
+    @GET("api")
+    Call<Serialisasi> doubleSerialisasi(@Query("barcode") String barcode);
 }

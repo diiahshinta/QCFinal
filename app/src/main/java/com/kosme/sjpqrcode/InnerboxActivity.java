@@ -208,7 +208,7 @@ public class InnerboxActivity extends AppCompatActivity {
 
                 } else {
 
-                    Toast.makeText(InnerboxActivity.this, data.getMessage() , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InnerboxActivity.this, data.getMessage().getMessage() , Toast.LENGTH_SHORT).show();
                 }
             }
 
